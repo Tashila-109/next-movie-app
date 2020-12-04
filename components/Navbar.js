@@ -1,10 +1,12 @@
+import Link from 'next/link';
+
 const Navbar = () => {
   return (
     <nav className='navbar navbar-expand-lg navbar-dark bg-dark fixed-top'>
       <div className='container'>
-        <a className='navbar-brand' href='#'>
-          Start Bootstrap
-        </a>
+        <Link href='/'>
+          <a className='navbar-brand'>Movie DB</a>
+        </Link>
         <button
           className='navbar-toggler'
           type='button'
@@ -19,25 +21,29 @@ const Navbar = () => {
         <div className='collapse navbar-collapse' id='navbarResponsive'>
           <ul className='navbar-nav ml-auto'>
             <li className='nav-item active'>
-              <a className='nav-link' href='#'>
-                Home
-                <span className='sr-only'>(current)</span>
-              </a>
+              <Link href='/'>
+                <a className='nav-link'>
+                  Home
+                  <span className='sr-only'>(current)</span>
+                </a>
+              </Link>
             </li>
             <li className='nav-item'>
-              <a className='nav-link' href='#'>
-                About
-              </a>
+              <Link href='/about'>
+                <a className='nav-link'>About</a>
+              </Link>
             </li>
             <li className='nav-item'>
-              <a className='nav-link' href='#'>
-                Services
-              </a>
+              <Link href='/services'>
+                <a className='nav-link' href='#'>
+                  Services
+                </a>
+              </Link>
             </li>
             <li className='nav-item'>
-              <a className='nav-link' href='#'>
-                Contact
-              </a>
+              <Link href='/contact'>
+                <a className='nav-link'>Contact</a>
+              </Link>
             </li>
           </ul>
         </div>
