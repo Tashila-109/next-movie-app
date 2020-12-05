@@ -4,12 +4,12 @@ const Carousel = props => {
     <div id='carouselExampleIndicators' className='carousel slide my-4' data-ride='carousel'>
       <ol className='carousel-indicators'>
         {images.map((image, index) => (
-          <li data-target='#carouselExampleIndicators' data-slide-to={index} className={index === 0 ? 'active' : ''}></li>
+          <li key={image.id} data-target='#carouselExampleIndicators' data-slide-to={index} className={index === 0 ? 'active' : ''}></li>
         ))}
       </ol>
       <div className='carousel-inner' role='listbox'>
         {images.map((image, index) => (
-          <div className={`carousel-item active ${index === 0 ? 'active' : ''}`}>
+          <div key={image.id} className={`carousel-item ${index === 0 ? 'active' : ''}`}>
             <img className='d-block img-fluid' src={image.url} alt={image.name} />
           </div>
         ))}

@@ -1,25 +1,23 @@
-import {useState, useEffect} from 'react';
-
 import SideMenu from '../components/SideMenu';
 import Carousel from '../components/Carousel';
 import MovieList from '../components/MovieList';
 
-import {getMovies} from '../actions';
+import {getMovies, getCategories} from '../actions';
 
 const Home = props => {
-  const {images} = props;
+  const {images, categories, movies} = props;
   return (
     <div>
       <div className='home-page'>
         <div className='container'>
           <div className='row'>
             <div className='col-lg-3'>
-              <SideMenu appName={'Movie DB'} />
+              <SideMenu categories={categories} appName={'Movie DB'} />
             </div>
             <div className='col-lg-9'>
               <Carousel images={images} />
               <div className='row'>
-                <MovieList movies={props.movies || []} />
+                <MovieList movies={movies || []} />
               </div>
             </div>
           </div>
@@ -31,6 +29,7 @@ const Home = props => {
 
 Home.getInitialProps = async () => {
   const movies = await getMovies();
+  const categories = await getCategories();
   const images = movies.map(movie => ({
     id: `image-${movie.id}`,
     url: movie.cover,
@@ -39,6 +38,7 @@ Home.getInitialProps = async () => {
   return {
     movies,
     images,
+    categories,
   };
 };
 
