@@ -1,5 +1,6 @@
 import {useRouter} from 'next/router';
 import {getMovieById, deleteMovie} from '../../../actions';
+import Link from 'next/link';
 
 import styles from './movie.module.scss';
 
@@ -24,9 +25,14 @@ const Movie = props => {
         <button className='btn btn-primary btn-lg mr-1' href='#' role='button'>
           Learn more
         </button>
-        <button onClick={() => handleDeleteMovie(movie.id)} className='btn btn-danger btn-lg' href='#' role='button'>
+        <button onClick={() => handleDeleteMovie(id)} className='btn btn-danger btn-lg mr-1' href='#' role='button'>
           Delete
         </button>
+        <Link href='/movies/[id]/edit' as={`/movies/${id}/edit`}>
+          <button className='btn btn-warning btn-lg' role='button'>
+            Edit
+          </button>
+        </Link>
       </div>
       <p className={styles.descText}>{movie.longDesc}</p>
     </div>

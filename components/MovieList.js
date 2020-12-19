@@ -25,6 +25,7 @@ class MovieList extends React.PureComponent {
                 <a>{movie.name}</a>
               </Link>
             </h4>
+            <div className="movie-genre">{movie.genre}</div>
             <h5>$24.99</h5>
             <p className='card-text'>{this.handleShortenText(movie.description, 100)}</p>
           </div>
